@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="442dp"
+        android:layout_height="0dp"
+        android:text="Rules/Description"
+        android:textScaleX="1"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="572dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="151dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="554dp"
+            android:layout_weight="1"
+            android:text='\n\n\n\nA person (Host) thinks of any isogram word, and gives out the number of letters in the word.
+Other players (Guessers) try to figure that word by guessing isogram words containing the same number of letters.
+Host responds with the number of Cows - Bulls for each guessed word. As with the digit version, "Cow" means a letter in the wrong position, while "Bull" means a letter in the right position.
+\n\nFor example, if the secret word is HEAT, a guess of COIN would result in "0 Bulls, 0 Cows" (all of the guessed letters are wrong); a guess of EATS would result in "0 Bulls, 3 Cows" (since E, A, T are all present, but not in the guessed positions), and a guess of TEAL would result in "2 Bulls, 1 Cow" (since E and A are in the right positions, while T is in the wrong position). The game would continue until someone scores "4 Bulls" for guessing HEAT exactly.'
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="284dp"
+        android:layout_marginLeft="284dp"
+        android:layout_marginTop="607dp"
+        android:text="Back"
+        android:onClick="backClick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
