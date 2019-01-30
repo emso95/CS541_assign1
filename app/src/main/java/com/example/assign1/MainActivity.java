@@ -9,10 +9,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText eText;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
+        eText = (EditText) findViewById(R.id.editText3);
+        btn = (Button) findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String str = eText.getText().toString();
+                Toast msg = Toast.makeText(getBaseContext(),str,Toast.LENGTH_LONG);
+                msg.show();
+            }
+        });
 
 
 
@@ -65,5 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void backClick(View view) {
         setContentView(R.layout.activity_main);
+    }
+
+    public void startClick(View view) {
+        setContentView(R.layout.game_page);
+
     }
 }

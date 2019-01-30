@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:gravity="center"
+            android:text="Guess the word(5 letter)"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="5"
+        android:inputType="textPersonName"
+        android:hint="Enter your guess"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+
+
+
+</LinearLayout>
