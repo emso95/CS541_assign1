@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView remainView;
     TextView bullView;
     TextView cowView;
+    TextView guessView;
     String[] name_list={"brick","novel","cargo","agent","child","ethic","magic","rails","hazel","table"};
     String word;
     int count;
@@ -85,16 +86,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitClick(View view) {
-        count--;
+
+
         eText = findViewById(R.id.editText3);
+        String str = eText.getText().toString();
+        if(str.length()!=5){
+            Toast msg = Toast.makeText(getBaseContext(),"It must be 5 letter!",Toast.LENGTH_LONG);
+            msg.show();
+            eText.setText(null);
+            return;
+
+        }
+        eText.setText(null);
+
+        count--;
+        guessView=findViewById(R.id.textView8);
         remainView=findViewById(R.id.textView7);
         bullView=findViewById(R.id.textView6);
         cowView=findViewById(R.id.textView5);
-
+        Button resetButton = findViewById(R.id.retyButton);
+        Button submitButton = findViewById(R.id.submitButton);
+        Button backButton = findViewById(R.id.backButton);
 
         remainView.setText(count+" guess left");
-        String str = eText.getText().toString();
-        eText.setText(null);
+
         int bull = 0;
         int cow = 0;
         char[] guess  = str.toLowerCase().toCharArray();
@@ -118,8 +133,21 @@ public class MainActivity extends AppCompatActivity {
         }
         cowView.setText("COW = " + cow);
         bullView.setText("BULL = " + bull);
-        //Toast msg = Toast.makeText(getBaseContext(),"Cow = "+cow+" Bull = "+ bull,Toast.LENGTH_LONG);
-        //msg.show();
+        if(count>0) {
+            if (bull == 5) {
+                guessView.setText("Last Guess: " + str + "   Answer:" + word);
+                submitButton.setClickable(false);
+                backButton.setClickable(false);
+                resetButton.setVisibility(View.VISIBLE); //To set visible
+            } else {
+                guessView.setText("Last Guess: " + str);
+            }
+        }
+        else{
+            guessView.setText("Answer:" + word +"  Bad Luck!");
+            resetButton.setVisibility(View.VISIBLE);
+        }
+
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -129,5 +157,11 @@ public class MainActivity extends AppCompatActivity {
     public static String getRandom(String[] array) {
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
+    }
+
+    public void againClick(View view) {
+        count=10;
+        setContentView(R.layout.game_page);
+        word=getRandom(name_list);
     }
 }
